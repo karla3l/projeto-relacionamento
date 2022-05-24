@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionarios</title>
+    
+    <style>
+        table, th, td {
+          border: 1px solid black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1><i>Editar Funcionario</i></h1>    
+    
+    <a href="/funcionarios"><i>Pagina Inicial</i></a>
+    
+    <form th:action="@{/salvarFuncionario}" th:object="${funcionario}" method="POST" id="formFuncionario">
+      
+        <label><i>Inscrição:</i></label> <span th:text="${funcionario.inscricao}"></span>
+        <input type="hidden" th:value="${funcionario.inscricao}" th:field="${funcionario.inscricao}" name="inscricao" />
+        <br>
+        <label><i>Nome:</i></label>
+        <input type="text" placeholder="Digite o nome" th:value="${funcionario.firstname}" name="firstname" required/>
+        <br>  
+        <label><i>Sobrenome:</i></label>
+        <input type="text" placeholder="Digite o sobrenome" th:value="${funcionario.lastname}" name="firstname" required/>
+        <br> 
+    
+        <label><i>Projeto:</i></label>
+        <input type="text" placeholder="Digite o projeto" th:value="${funcionario.projeto}" name="projeto" required/>
+        <br>
+        
+
+        <br>
+        <br>
+        <input type="submit" value="Salvar" />
+        <input type="reset"  value="Cancelar"/>
+    </form>
+    
+</body>
+
+</html>

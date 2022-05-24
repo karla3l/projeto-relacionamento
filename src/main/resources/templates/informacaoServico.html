@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes Serviço</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Detalhes Serviço</h1>
+    <a href="/">Menu</a>
+    <a href="/servicos">Serviços</a>
+    <br>
+    <br>
+    <b>Id Serviço: </b> <span th:text="${servico.id}"></span>
+    <br><b>Nome: </b> <span th:text="${servico.nome}"></span>
+    <br><b>Valor: </b> <span th:text="${servico.valor}"></span>
+    <br>
+    <br>
+    Clientes:
+    <table>
+        <tr>
+            <th>Inscrição</th>
+            <th>Nome</th>
+            <th>Serviço</th>
+        </tr>
+       
+        <tr th:each="cliente : ${servico.cliente}">
+            <td th:text="${cliente.inscricao}"></td>
+            <td th:text="${cliente.nome}"></td>
+            <td th:text="${cliente.servico?.nome}"></td>
+        </tr>
+    </table>
+    <br>
+    Funcionario:
+    <table>
+        <tr>
+            <th>Inscrição</th>
+            <th>Nome</th>
+        </tr>
+       
+        <tr th:each="funcionario : ${projeto.funcionario}">
+            <td th:text="${funcionario.inscricao}"></td>
+            <td th:text="${funcionario.nome}"></td>
+        </tr>
+    </table>
+</body>
+</html>
